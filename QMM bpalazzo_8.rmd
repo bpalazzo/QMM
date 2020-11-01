@@ -1,0 +1,144 @@
+---
+title: "QMM bpalazzo_8"
+author: "Brandon Palazzo"
+date: "10/26/2020"
+output: pdf_document
+---
+
+```{r}
+library(Benchmarking)
+
+data <- read.csv("QMMbpalazzo_8.csv")
+
+```
+
+
+Creating Table
+```{r}
+x <- matrix(c(150, 400, 320, 520, 350, 320, 0.2, 0.7, 1.2, 2.0, 1.2, 0.7), ncol = 2)
+y <- matrix(c(14000, 14000, 42000, 28000, 19000, 14000, 3500, 21000, 10500, 42000, 25000, 15000), ncol = 2)
+colnames(x) <- c("Daily Staff Hours","Daily Supplies")
+colnames(y) <- c("Reimbursed Patient-Days","Privately Paid Patient-Days")
+x
+y
+```
+
+
+
+
+
+
+DEA analysis
+```{r}
+e <- dea(x,y,RTS = "crs")
+e
+
+```
+
+
+
+
+
+
+Peers
+```{r}
+peers(e)
+
+```
+
+
+
+
+
+
+
+
+Lamdas
+```{r}
+lambda(e)
+
+```
+
+
+
+
+
+
+
+
+
+Plot
+```{r}
+
+dea.plot.isoquant(x,y,RTS="crs")
+
+
+
+```
+
+
+
+
+
+
+
+Comparing and Contrasting the Complete Table
+
+```{r}
+
+data
+
+```
+
+
+
+```{r}
+
+drs <- dea(x,y,RTS = "drs")
+fdh <- dea(x,y,RTS = "fdh")
+
+vrs <- dea(x,y,RTS = "vrs")
+irs <- dea(x,y,RTS = "irs")
+
+drs
+fdh
+vrs
+irs
+e
+
+
+
+
+z <- matrix(c(1, 1, 1, 1, 0.9775, 0.8675, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.8963, 1, 1, 1, 1, 1, 0.8963, 1, 1, 1, 1, 0.9775, 0.8675 ), ncol = 5)
+
+colnames(z) <- c("DRS","FDH", "VRS", "IRS", "CRS")
+
+z
+
+full_table <- cbind(data, z)
+
+full_table
+
+```
+
+
+The DRS and CRS columns are the same and VRS and IRS columns are the same as well. The FDH column is unique because all facilities are fully efficient at 1. Facility 5 is fully efficient in FDH, VRS, and IRS, but slightly inefficient at DRS and CRS at 0.9775. Facility 6 is fully efficient at FDH, less efficient at VRS and IRS at 0.8963, and even less efficient at DRS and CRS at 0.8675. Facilities 1-4 are fully efficient throughout all DRS, FDH, VRS, IRS, and CRS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
