@@ -1,0 +1,63 @@
+---
+title: "QMM bpalazzo_9"
+author: "Brandon Palazzo"
+date: "11/2/2020"
+output: pdf_document
+---
+
+```{r}
+
+library(lpSolveAPI)
+
+data <- read.lp("bpalazzo_9.lp")
+
+data
+
+
+```
+
+
+```{r}
+
+solve(data)
+
+get.objective(data)
+
+get.variables(data)
+
+
+```
+
+
+Employment Level Goal Penalties: +6, -6
+Next Year Earnings Goal Penalties: -3
+
+
+
+p: 375
+y1p: 25
+y1m: 0
+y2m: 0
+x1: 0
+x2: 0
+x3: 15
+y2p: 0
+
+z: 225
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
