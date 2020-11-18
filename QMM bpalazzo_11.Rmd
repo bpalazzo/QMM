@@ -1,0 +1,66 @@
+---
+title: "QMM bpalazzo_11"
+author: "Brandon Palazzo"
+date: "11/16/2020"
+output: pdf_document
+---
+
+```{r}
+
+library(lpSolveAPI)
+x <- read.lp("QMMbpalazzo_11.lp")
+x
+
+
+```
+
+
+```{r}
+solve(x)
+
+
+
+```
+
+```{r}
+
+get.objective(x)
+
+```
+The total cost of wages is $25,675.
+
+```{r}
+
+get.variables(x)
+
+```
+We need 2 people for shift 1, 4 people for shift 2, 5 people for shift 3, no people for shift 4, 8 people for shift 5, 1 person for shift 6, and 13 people for shift 7.
+
+For our staffing numbers, we need 18 people for Sunday, 27 people for Monday, 24 people for Tuesday, 28 people for Wednesday, 25 people for Thursday, 24 people for Friday, and 19 people for Saturday.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
