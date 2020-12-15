@@ -1,0 +1,84 @@
+---
+title: "QMM bpalazzo_Final"
+author: "Brandon Palazzo"
+date: "12/10/2020"
+output: pdf_document
+---
+
+Packages
+```{r}
+
+library(lpSolveAPI)
+
+```
+
+
+```{r}
+x <- read.lp("QMM_final.lp") 
+x
+
+```
+
+
+Solve for X
+
+```{r}
+solve(x)
+```
+
+Solve for the objectives, variables, and constraints
+```{r}
+get.objective(x)        
+get.variables(x)       
+get.constraints(x)      
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
